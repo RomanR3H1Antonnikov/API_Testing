@@ -24,14 +24,12 @@ class TestCreateJokeCategory:
     ]
 
     def start_question(self):
-        print("Введите категорию, на которую вы хотите получить шутку:")
-        category = input()
-        rez_list = []
-        for x in range(len(self.joke_category_list)):
-            rez_list.append(start.test_create_random_joke_positive(self.joke_category_list[x], 200))
+        category = input("Введите категорию, на которую вы хотите получить шутку:")
+        rez_list = requests.get("https://api.chucknorris.io/jokes/categories").json()
+        print(rez_list)
         if category in rez_list:
             print("Данная категория существует! Отправляем запрос на получение..")
-            start.test_create_random_joke_positive(category, 200)
+            self.test_create_random_joke_positive(category, 200)
         else:
             print("Данной категории не существует! Попробуйте позже")
 
