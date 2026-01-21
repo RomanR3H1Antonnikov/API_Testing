@@ -1,10 +1,8 @@
 import json
-from fileinput import filename
-
 import requests
 
 
-class test_new_location:
+class TestNewLocation:
 
     def test_create_new_location(self):
 
@@ -67,6 +65,6 @@ class test_new_location:
         print("Статус-код GET корректен")
 
 
-start = test_new_location()
+start = TestNewLocation()
 start.test_create_new_location()
 print('Тест прошёл успешно')
